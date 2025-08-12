@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Env Tab Labeler — Options</title>
+    <link rel="stylesheet" href="options.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <header>
+      <h1>Env Tab Labeler</h1>
+      <p>Add visual labels per environment and customize how they look.</p>
+    </header>
+
+    <section class="card">
+      <label class="switch">
+        <input type="checkbox" id="enabled" />
+        <span class="slider"></span>
+        <span class="label">Enabled</span>
+      </label>
+      <div class="row">
+        <label>
+          Mode
+          <select id="mode">
+            <option value="ribbon">Ribbon (corner)</option>
+            <option value="banner">Banner (top)</option>
+            <option value="border">Border (around page)</option>
+          </select>
+        </label>
+        <label>
+          Size
+          <select id="size">
+            <option value="small">Small</option>
+            <option value="medium" selected>Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" id="showBadge" checked />
+          Show badge on extension icon
+        </label>
+        <label>
+          Opacity
+          <input type="number" id="opacity" step="0.05" min="0.1" max="1" value="0.9" />
+        </label>
+        <label>
+          Font
+          <select id="fontPreset">
+            <option value="system" selected>System UI (default)</option>
+            <option value="roboto">Roboto-like</option>
+            <option value="inter">Inter-like</option>
+            <option value="mono">Monospace</option>
+            <option value="serif">Serif</option>
+            <option value="custom">Custom…</option>
+          </select>
+        </label>
+        <label id="fontCustomWrap" style="display:none">
+          Custom font family
+          <input type="text" id="fontCustom" placeholder="e.g., Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" />
+        </label>
+      </div>
+      <div id="fontPreview" class="preview">ENV PREVIEW</div>
+    </section>
+
+    <section class="card">
+      <div class="rules-header">
+        <h2>Rules</h2>
+        <div class="actions">
+          <button id="addRule">Add rule</button>
+          <button id="exportRules">Export</button>
+          <label class="import">
+            <input type="file" id="importRules" accept=".json,application/json" />
+            Import
+          </label>
+        </div>
+      </div>
+      <p class="hint">
+        <strong>Pattern</strong> can be a simple substring (checked against hostname and full URL),
+        or a <code>/regex/</code>. Examples: <code>localhost</code>, <code>.dev.</code>,
+        <code>/^https?:\/\/staging\.example\.com/</code>.
+      </p>
+      <table id="rulesTable">
+        <thead>
+          <tr>
+            <th>Pattern</th>
+            <th>Label</th>
+            <th>BG</th>
+            <th>FG</th>
+            <th>Border</th>
+            <th>Position</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="rulesBody"></tbody>
+      </table>
+      <p class="hint">Position applies to the ribbon mode (<em>top-left</em>, <em>top-right</em>, <em>bottom-left</em>, <em>bottom-right</em>).</p>
+    </section>
+
+    <footer>
+      <button id="save">Save</button>
+      <span id="status"></span>
+    </footer>
+
+    <script src="options.js"></script>
+  </body>
+</html>

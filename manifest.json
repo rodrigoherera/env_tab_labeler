@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Env Tab Labeler",
+  "version": "1.0.0",
+  "description": "Add a visual label (ribbon/banner/border) per environment with custom text and colors. Great for Local/Dev/Staging/Prod.",
+  "action": {
+    "default_title": "Env Tab Labeler"
+  },
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "commands": {
+    "toggle-indicator": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+E",
+        "mac": "Command+Shift+E"
+      },
+      "description": "Toggle env indicator on this tab"
+    }
+  }
+}
