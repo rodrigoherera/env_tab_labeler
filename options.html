@@ -9,7 +9,7 @@
   <body>
     <header>
       <h1>Env Tab Labeler</h1>
-      <p>Add visual labels per environment and customize how they look.</p>
+      <p>Add visual labels per environment and tailor how and where they render.</p>
     </header>
 
     <section class="card">
@@ -20,7 +20,7 @@
       </label>
       <div class="row">
         <label>
-          Mode
+          Default mode
           <select id="mode">
             <option value="ribbon">Ribbon (corner)</option>
             <option value="banner">Banner (top)</option>
@@ -37,29 +37,12 @@
         </label>
         <label class="checkbox">
           <input type="checkbox" id="showBadge" checked />
-          Show badge on extension icon
+          Badge on icon (default)
         </label>
         <label>
           Opacity
           <input type="number" id="opacity" step="0.05" min="0.1" max="1" value="0.9" />
-        </label>
-        <label>
-          Font
-          <select id="fontPreset">
-            <option value="system" selected>System UI (default)</option>
-            <option value="roboto">Roboto-like</option>
-            <option value="inter">Inter-like</option>
-            <option value="mono">Monospace</option>
-            <option value="serif">Serif</option>
-            <option value="custom">Custom…</option>
-          </select>
-        </label>
-        <label id="fontCustomWrap" style="display:none">
-          Custom font family
-          <input type="text" id="fontCustom" placeholder="e.g., Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" />
-        </label>
       </div>
-      <div id="fontPreview" class="preview">ENV PREVIEW</div>
     </section>
 
     <section class="card">
@@ -75,25 +58,9 @@
         </div>
       </div>
       <p class="hint">
-        <strong>Pattern</strong> can be a simple substring (checked against hostname and full URL),
-        or a <code>/regex/</code>. Examples: <code>localhost</code>, <code>.dev.</code>,
-        <code>/^https?:\/\/staging\.example\.com/</code>.
+        Start with a label, pattern, and colour. Use “Advanced settings” inside each rule when you need badges, alternate modes, or scoped matching.
       </p>
-      <table id="rulesTable">
-        <thead>
-          <tr>
-            <th>Pattern</th>
-            <th>Label</th>
-            <th>BG</th>
-            <th>FG</th>
-            <th>Border</th>
-            <th>Position</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody id="rulesBody"></tbody>
-      </table>
-      <p class="hint">Position applies to the ribbon mode (<em>top-left</em>, <em>top-right</em>, <em>bottom-left</em>, <em>bottom-right</em>).</p>
+      <div id="rulesBody" class="rules-body"></div>
     </section>
 
     <footer>

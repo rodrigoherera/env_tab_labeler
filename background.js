@@ -4,35 +4,45 @@ const DEFAULTS = {
   rules: [
     {
       pattern: "localhost",
+      matchType: "hostname",
       label: "LOCAL",
       bg: "#1e293b",
       fg: "#ffffff",
       border: "#1e293b",
       position: "top-left",
+      mode: "ribbon",
     },
     {
       pattern: ".dev.",
+      matchType: "url",
       label: "DEV",
       bg: "#2563eb",
       fg: "#ffffff",
       border: "#2563eb",
-      position: "top-left",
+      position: "bottom-left",
+      mode: "ribbon",
     },
     {
       pattern: "staging",
+      matchType: "url",
       label: "STAGING",
       bg: "#f59e0b",
       fg: "#000000",
       border: "#f59e0b",
       position: "top-left",
+      mode: "banner",
     },
     {
       pattern: "prod",
+      matchType: "hostname",
       label: "PROD",
       bg: "#dc2626",
       fg: "#ffffff",
       border: "#dc2626",
-      position: "top-left",
+      position: "top-right",
+      mode: "border",
+      showBadge: true,
+      scope: { host: "prod", protocol: "https" },
     },
   ],
   style: {
@@ -40,8 +50,6 @@ const DEFAULTS = {
     opacity: 0.9,
     size: "medium", // small | medium | large
     showBadge: true,
-    fontFamily:
-      "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif",
   },
 };
 

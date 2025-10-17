@@ -1,0 +1,10 @@
+{
+  "name": "env-tab-labeler",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "rm -f env-tab-labeler.zip && zip -r env-tab-labeler.zip manifest.json background.js content.js options.html options.js options.css popup.html popup.js popup.css icons",
+    "lint": "npx prettier@latest --check \"**/*.{js,css,html,json,md}\"",
+    "format": "npx prettier@latest --write \"**/*.{js,css,html,json,md}\""
+  }
+}

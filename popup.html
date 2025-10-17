@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Env Tab Labeler</title>
+    <link rel="stylesheet" href="popup.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Env Tab Labeler</h1>
+        <span id="version" class="version"></span>
+      </header>
+      <section class="card">
+        <div id="statusBadge" class="status status--loading">Loading…</div>
+        <div id="ruleDetails" class="details hidden">
+          <div class="detail">
+            <span class="label">Label</span>
+            <span id="detailLabel" class="value"></span>
+          </div>
+          <div class="detail">
+            <span class="label">Match</span>
+            <span id="detailMatch" class="value"></span>
+          </div>
+          <div class="detail">
+            <span class="label">Mode</span>
+            <span id="detailMode" class="value"></span>
+          </div>
+          <div class="detail">
+            <span class="label">Badge</span>
+            <span id="detailBadge" class="value"></span>
+          </div>
+          <div class="detail">
+            <span class="label">Scope</span>
+            <span id="detailScope" class="value"></span>
+          </div>
+        </div>
+        <div id="noRuleMessage" class="hint hidden">
+          No matching rule for this tab. Add one in Options.
+        </div>
+        <div id="errorMessage" class="hint hidden">
+          Unable to reach the content script on this page.
+        </div>
+      </section>
+      <div class="actions">
+        <button id="toggleBtn" class="primary">Toggle Overlay</button>
+        <button id="optionsBtn" class="secondary">Open Options</button>
+      </div>
+      <p id="hotkeyHint" class="hint">Quick toggle: Ctrl+Shift+E</p>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
